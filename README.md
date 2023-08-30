@@ -38,6 +38,8 @@ Enlace a la api de swagger con el proyecto iniciado -> http://localhost:8080/swa
 En nuestro caso, hemos aplicado un Circuit Breaker al método findApplicablePrice, que es responsable de encontrar el precio aplicable para un producto dado en una marca y tiempo específicos. Si este método falla por cualquier motivo (por ejemplo, si la base de datos está inactiva), el Circuit Breaker se activará y llamará al método de fallback fallbackForFindApplicablePrices.
 ![image](https://github.com/luiscalderon1994/inditext-technical/assets/143569057/88ddb906-6f63-4d4e-a489-b80a28346103)
 
+Link para verificar la salud del servicio -> http://localhost:8080/actuator/health
+
 El método de fallback está diseñado para manejar el fallo de una manera más controlada. En este caso, simplemente devolvemos null, pero podríamos diseñar estrategias más robustas como devolver un precio por defecto, registrar el error para futuras investigaciones, etc.
 
 3.6 Base de datos H2: La tabla PRICE contiene información sobre los precios de los productos para diferentes marcas y en diferentes momentos del tiempo. Aquí está el desglose de cada columna:
