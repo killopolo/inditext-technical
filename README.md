@@ -72,7 +72,7 @@ Se selecciona el precio con la prioridad más alta y se devuelve como respuesta.
 En caso de fallo, el circuit breaker se activa y se ejecuta un método de fallback.
 
 
-#5. Configuración de Swagger
+# 5. Configuración de Swagger
 El sistema utiliza OpenAPI para generar documentación en tiempo real de la API. Esta documentación está disponible en una URL específica y se puede utilizar para probar la API interactivamente.
 
 # 6. Despliegue y Pruebas
