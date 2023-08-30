@@ -53,6 +53,9 @@ El método de fallback está diseñado para manejar el fallo de una manera más 
 7) PRIORITY: Un número que indica la prioridad de este precio en caso de solapamiento de fechas.
 8) PRICE: El precio del producto.
 9) CURR: La moneda en la que se expresa el precio (en este caso, EUR para euros).
+
+    ![image](https://github.com/luiscalderon1994/inditext-technical/assets/143569057/9e7dc951-2744-4601-8d47-30ea292820ff)
+
    
 
 
