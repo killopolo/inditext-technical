@@ -11,7 +11,8 @@
 # 1. Introducción
 Esta documentación detalla el diseño y la arquitectura del Sistema de Gestión de Precios desarrollado como parte de la prueba técnica para Inditex. El sistema se desarrolló utilizando el marco Spring Boot y se ajusta a los patrones de diseño de microservicios.
 
-![image](https://github.com/luiscalderon1994/inditext-technical/assets/143569057/2a3d0d37-0b15-460e-84f7-3b3b2c5ec71e)
+![AppSeguros - InditexsrctestjavacominditexPriceTest java - Eclipse IDE](https://github.com/luiscalderon1994/inditext-technical/assets/143569057/138dbf43-4b27-440e-a9ba-e3e305e7d46a)
+
 
 
 # 2. Objetivos de la Aplicación
@@ -30,13 +31,15 @@ El PriceRepository se encarga de interactuar con la base de datos utilizando JPA
 3.4 Swagger 3: 
 Se utiliza OpenAPI para documentar la API y proporcionar una interfaz interactiva para probarla.
 
-![image](https://github.com/luiscalderon1994/inditext-technical/assets/143569057/e520eaac-df31-4339-b895-00d5f86212d6)
+![Swagger UI - Google Chrome](https://github.com/luiscalderon1994/inditext-technical/assets/143569057/15b60d4d-0dd0-4f76-8f0d-caacd1957a74)
+
 
 Enlace a la api de swagger con el proyecto iniciado -> http://localhost:8080/swagger-ui/index.html#/
 
 3.5 Circuit Breaker: 
 En nuestro caso, hemos aplicado un Circuit Breaker al método findApplicablePrice, que es responsable de encontrar el precio aplicable para un producto dado en una marca y tiempo específicos. Si este método falla por cualquier motivo (por ejemplo, si la base de datos está inactiva), el Circuit Breaker se activará y llamará al método de fallback fallbackForFindApplicablePrices.
-![image](https://github.com/luiscalderon1994/inditext-technical/assets/143569057/88ddb906-6f63-4d4e-a489-b80a28346103)
+![localhost8080actuatorhealth - Google Chrome](https://github.com/luiscalderon1994/inditext-technical/assets/143569057/3908a53b-97c9-4e91-8449-365eb281166d)
+
 
 Link para verificar la salud del servicio -> http://localhost:8080/actuator/health
 
@@ -54,7 +57,8 @@ El método de fallback está diseñado para manejar el fallo de una manera más 
 8) PRICE: El precio del producto.
 9) CURR: La moneda en la que se expresa el precio (en este caso, EUR para euros).
 
-![image](https://github.com/luiscalderon1994/inditext-technical/assets/143569057/80e77d4a-f49a-4063-9036-f96537da99ff)
+![H2 Console - Google Chrome](https://github.com/luiscalderon1994/inditext-technical/assets/143569057/5921ca2c-bbac-4a03-a90d-e469977472a4)
+
 
 
    
@@ -96,4 +100,5 @@ Las pruebas se diseñaron específicamente para abordar los casos de uso proporc
 
 Al pasar todas estas pruebas, se puede tener confianza en que la implementación es sólida y cumple con los requisitos dados.
 
-![image](https://github.com/luiscalderon1994/inditext-technical/assets/143569057/683acfa8-22eb-4d02-83e4-910f6b78c410)
+![AppSeguros - InditexsrctestjavacominditexPriceTest java - Eclipse IDE_2](https://github.com/luiscalderon1994/inditext-technical/assets/143569057/8ff2f8a0-4316-4b18-9621-e7004a48d9d6)
+
