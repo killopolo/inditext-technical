@@ -82,6 +82,9 @@ La aplicación se despliega en un entorno local, lo cual es ideal para el desarr
 2.2) Pruebas
 Para las pruebas, se utilizó JUnit 5, que es un marco de pruebas ampliamente utilizado para Java que ofrece funcionalidades para escribir pruebas simples y a la vez potentes.
 
+![Correo Luis Calderon - Outlook](https://github.com/luiscalderon1994/inditext-technical/assets/143569057/55d47178-1234-48cb-9156-21693b69d610)
+
+
 3.3) Detalles de las Pruebas
 Se realizaron 5 pruebas unitarias para verificar la lógica de selección de precios en diferentes escenarios:
 
