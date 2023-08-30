@@ -54,7 +54,8 @@ El método de fallback está diseñado para manejar el fallo de una manera más 
 8) PRICE: El precio del producto.
 9) CURR: La moneda en la que se expresa el precio (en este caso, EUR para euros).
 
-    ![image](https://github.com/luiscalderon1994/inditext-technical/assets/143569057/9e7dc951-2744-4601-8d47-30ea292820ff)
+![image](https://github.com/luiscalderon1994/inditext-technical/assets/143569057/80e77d4a-f49a-4063-9036-f96537da99ff)
+
 
    
 
