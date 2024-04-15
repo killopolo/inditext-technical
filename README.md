@@ -1,5 +1,9 @@
 # Documentación del Sistema de Gestión de Precios de Inditex
 
+
+
+
+
 Índice: 
 1) Introducción
 2) Objetivos de la Aplicación
@@ -7,6 +11,58 @@
 4) Flujo de la Aplicación
 5) Configuración de OpenAPI
 6) Despliegue y Pruebas
+
+# Descripción General
+Esta API proporciona información actualizada sobre los precios de productos específicos, según las marcas y fechas proporcionadas. Está diseñada para ser clara, eficiente y fácil de entender, garantizando un alto rendimiento y fiabilidad.
+
+# Tecnologías y Arquitecturas Utilizadas
+Java 17: Utilizado para aprovechar las últimas características del lenguaje.
+Spring Boot: Facilita la creación de aplicaciones Spring stand-alone.
+Spring Data JPA: Proporciona una manera de integrar capas de acceso a datos en aplicaciones JPA.
+H2 Database: Base de datos en memoria para facilitar las pruebas y el desarrollo.
+Lombok: Reduce la cantidad de código boilerplate, como getters y setters.
+ModelMapper: Utilizado para mapear entidades a DTOs.
+
+# Arquitectura
+Se ha utilizado una arquitectura en capas que separa claramente las responsabilidades:
+
+Controller: Capa de presentación que maneja las solicitudes HTTP.
+Service: Capa de lógica de negocio que procesa la información.
+Repository: Capa de acceso a datos que interactúa con la base de datos.
+DTO: Objetos de Transferencia de Datos que representan la información que se intercambia entre el cliente y el servidor.
+Patrones de Diseño
+Patrón Repositorio: Abstrae la lógica de acceso a datos del resto de la aplicación.
+Patrón Servicio: Encapsula la lógica de negocio, separándola del controlador.
+Excepciones controladas con ControllerAdvice: Maneja las excepciones de manera centralizada, proporcionando respuestas coherentes y claras en casos de errores.
+Singleton:
+Uso: En Spring, todos los componentes anotados con @Component, @Service, @Repository, y otros, son tratados como Singleton por defecto. Esto significa que una única instancia de cada componente es creada y gestionada por el contenedor de Spring.
+Ejemplo: PriceServiceImpl es un servicio que Spring maneja como un singleton. Esto es útil porque asegura que todas las operaciones que maneja este servicio son centralizadas y coherentes, como las consultas a la base de datos a través del PriceRepository.
+
+Facade:
+Uso: Proporcionar una interfaz simplificada a un conjunto de interfaces en un subsistema.
+Ejemplo: PriceService actúa como una fachada para ocultar la complejidad de las operaciones de base de datos llevadas a cabo por PriceRepository, simplificando la interacción para los consumidores del servicio.
+
+Observer:
+Uso: Permite que un objeto notifique a otros objetos cambios en su estado.
+Ejemplo: Si bien no se mostró, el uso de eventos de aplicación en Spring (como Application Events) es un ejemplo de este patrón.
+
+MVC (Model-View-Controller):
+Uso: Separar la lógica de la aplicación en tres componentes principales: modelo, vista y controlador.
+Ejemplo: Aunque en una API Rest no se maneja una "vista" como tal, el PriceController gestiona las interacciones de usuario (HTTP requests), delegando la lógica del negocio al PriceService y utilizando PriceDTO como modelo para transferir datos.
+
+# Eficiencia y Optimización
+Se ha optimizado el acceso a datos mediante consultas que evitan el problema n+1 y están optimizadas para reducir la carga y mejorar la velocidad de respuesta:
+
+Consulta optimizada en JPA: Utiliza @Query para recuperar el precio más relevante sin necesidad de subconsultas adicionales.
+# Gestión de Código
+
+GitHub: Uso de ramas para la gestión de características, fixes y releases.
+Tags y Releases: Cada versión significativa se etiqueta para facilitar el seguimiento de cambios y versiones.
+
+# Testing
+JUnit y Mockito: Para pruebas unitarias y de integración asegurando que todos los componentes funcionen como se espera.
+Spring Boot Test: Para pruebas de integración con el contexto de Spring activo.
+
 
 # 1. Introducción
 Esta documentación detalla el diseño y la arquitectura del Sistema de Gestión de Precios desarrollado como parte de la prueba técnica para Inditex. El sistema se desarrolló utilizando el marco Spring Boot y se ajusta a los patrones de diseño de microservicios.
