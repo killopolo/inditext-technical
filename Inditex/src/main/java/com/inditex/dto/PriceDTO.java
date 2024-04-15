@@ -5,17 +5,23 @@ import java.time.LocalDateTime;
 
 import com.inditex.model.Price;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class PriceDTO {
-    private Integer productId;
-    private Integer brandId;
-    private Integer priceList;
+    private Long productId;
+    private Long brandId;
+    private Long priceList;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
-    private BigDecimal finalPrice;
-	
-    public PriceDTO() {
-		super();
-	}
+    private Double price;
     
     public PriceDTO(Price price) {
         this.productId = price.getProductId();
@@ -23,50 +29,6 @@ public class PriceDTO {
         this.priceList = price.getPriceList();
         this.startDate = price.getStartDate();
         this.endDate = price.getEndDate();
-        this.finalPrice = price.getPrice();
+        this.price = price.getPrice();
     }
-    
-	public Integer getProductId() {
-		return productId;
-	}
-	public void setProductId(Integer productId) {
-		this.productId = productId;
-	}
-	public Integer getBrandId() {
-		return brandId;
-	}
-	public void setBrandId(Integer brandId) {
-		this.brandId = brandId;
-	}
-	public Integer getPriceList() {
-		return priceList;
-	}
-	public void setPriceList(Integer priceList) {
-		this.priceList = priceList;
-	}
-	public LocalDateTime getStartDate() {
-		return startDate;
-	}
-	public void setStartDate(LocalDateTime startDate) {
-		this.startDate = startDate;
-	}
-	public LocalDateTime getEndDate() {
-		return endDate;
-	}
-	public void setEndDate(LocalDateTime endDate) {
-		this.endDate = endDate;
-	}
-	public BigDecimal getFinalPrice() {
-		return finalPrice;
-	}
-	public void setFinalPrice(BigDecimal finalPrice) {
-		this.finalPrice = finalPrice;
-	}
-	@Override
-	public String toString() {
-		return "PriceDTO [productId=" + productId + ", brandId=" + brandId + ", priceList=" + priceList + ", startDate="
-				+ startDate + ", endDate=" + endDate + ", finalPrice=" + finalPrice + "]";
-	}
-    
-    
 }

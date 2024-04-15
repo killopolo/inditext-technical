@@ -8,102 +8,66 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+
+
+/**
+ * Entidad que representa un precio específico de un producto dentro de una marca en un rango de fechas.
+ * Esta entidad se mapea a una tabla en la base de datos que almacena los precios de los productos,
+ * permitiendo un control detallado de la variabilidad de precios a lo largo del tiempo.
+ *
+ * <p>Utiliza {@link LocalDateTime} para las marcas de tiempo que aseguran precisión en términos de
+ * fechas y horas específicas, facilitando la gestión de precios que pueden cambiar múltiples veces dentro de un mismo día.</p>
+ *
+ * @author Luis Calderon
+ */
 @Entity
+@Data
+@NoArgsConstructor
 public class Price {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Integer brandId;
+
+    /**
+     * Identificador de la marca asociada al precio del producto.
+     */
+    private Long brandId;
+
+    /**
+     * Fecha y hora de inicio de validez del precio del producto.
+     */
     private LocalDateTime startDate;
+
+    /**
+     * Fecha y hora de fin de validez del precio del producto.
+     */
     private LocalDateTime endDate;
-    private Integer priceList;
-    private Integer productId;
-    private Integer priority;
-    private BigDecimal price;
+
+    /**
+     * Lista de precios a la que pertenece este precio específico.
+     */
+    private Long priceList;
+
+    /**
+     * Identificador del producto específico al que se aplica este precio.
+     */
+    private Long productId;
+
+    /**
+     * Prioridad del precio, utilizada para determinar qué precio aplicar en caso de superposiciones.
+     */
+    private Long priority;
+
+    /**
+     * El precio efectivo del producto en la moneda especificada por {@link #curr}.
+     */
+    private Double price;
+
+    /**
+     * Código de la moneda en la que se expresa el precio, por ejemplo, EUR para euros.
+     */
     private String curr;
-	
-    public Price() {
-		super();
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Integer getBrandId() {
-		return brandId;
-	}
-
-	public void setBrandId(Integer brandId) {
-		this.brandId = brandId;
-	}
-
-	public LocalDateTime getStartDate() {
-		return startDate;
-	}
-
-	public void setStartDate(LocalDateTime startDate) {
-		this.startDate = startDate;
-	}
-
-	public LocalDateTime getEndDate() {
-		return endDate;
-	}
-
-	public void setEndDate(LocalDateTime endDate) {
-		this.endDate = endDate;
-	}
-
-	public Integer getPriceList() {
-		return priceList;
-	}
-
-	public void setPriceList(Integer priceList) {
-		this.priceList = priceList;
-	}
-
-	public Integer getProductId() {
-		return productId;
-	}
-
-	public void setProductId(Integer productId) {
-		this.productId = productId;
-	}
-
-	public Integer getPriority() {
-		return priority;
-	}
-
-	public void setPriority(Integer priority) {
-		this.priority = priority;
-	}
-
-	public BigDecimal getPrice() {
-		return price;
-	}
-
-	public void setPrice(BigDecimal price) {
-		this.price = price;
-	}
-
-	public String getCurr() {
-		return curr;
-	}
-
-	public void setCurr(String curr) {
-		this.curr = curr;
-	}
-
-	@Override
-	public String toString() {
-		return "Price [id=" + id + ", brandId=" + brandId + ", startDate=" + startDate + ", endDate=" + endDate
-				+ ", priceList=" + priceList + ", productId=" + productId + ", priority=" + priority + ", price="
-				+ price + ", curr=" + curr + "]";
-	}
-    
-    
 }
